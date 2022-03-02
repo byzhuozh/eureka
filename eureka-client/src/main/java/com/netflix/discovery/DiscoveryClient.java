@@ -138,13 +138,22 @@ public class DiscoveryClient implements EurekaClient {
 
     // instance variables
     /**
+     * 线程池
      * A scheduler to be used for the following 3 tasks:
      * - updating service urls
      * - scheduling a TimedSuperVisorTask
      */
     private final ScheduledExecutorService scheduler;
     // additional executors for supervised subtasks
+
+    /**
+     * 心跳执行器
+     */
     private final ThreadPoolExecutor heartbeatExecutor;
+
+    /**
+     * {@link #localRegionApps} 刷新执行器
+     */
     private final ThreadPoolExecutor cacheRefreshExecutor;
 
     private TimedSupervisorTask cacheRefreshTask;
